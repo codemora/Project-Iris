@@ -1,4 +1,4 @@
-# Project-Iris
+# Iris - Project Documentation
 
 ## 1. Overview
 A backend platform (Java, Spring Boot) to create, schedule, and publish posts to Instagram from a single interface, with room to expand to other platforms later.
@@ -41,8 +41,9 @@ social-scheduler/
 - Post: id, user_id (FK), caption, media_url, media_type, status, scheduled_time, created_at, published_at
 - PublishLog: id, post_id (FK), attempt_time, status, error_message
 
-## 6. Entity Relationship Diagram (Mermaid)
-```
+## 6. Entity Relationship Diagram
+
+```mermaid
 erDiagram
     USER ||--o{ SOCIAL_ACCOUNT : owns
     USER ||--o{ POST : creates
@@ -84,8 +85,9 @@ erDiagram
     }
 ```
 
-## 7. Class Diagram (Mermaid)
-```
+## 7. Class Diagram
+
+```mermaid
 classDiagram
     class Post {
         Long id
@@ -121,8 +123,9 @@ classDiagram
     Post --> SocialAccount
 ```
 
-## 8. Sequence Diagram - Publishing a Scheduled Post (Mermaid)
-```
+## 8. Sequence Diagram - Publishing a Scheduled Post
+
+```mermaid
 sequenceDiagram
     participant Scheduler as SchedulerJob
     participant Service as PostService
@@ -141,8 +144,9 @@ sequenceDiagram
     end
 ```
 
-## 9. Flow Diagram - Post Creation to Publish (Mermaid)
-```
+## 9. Flow Diagram - Post Creation to Publish
+
+```mermaid
 flowchart TD
     A[User creates post via API/UI] --> B{Publish now or schedule?}
     B -->|Now| C[Call InstagramClient immediately]
